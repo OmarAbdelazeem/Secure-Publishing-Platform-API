@@ -22,6 +22,7 @@ The platform will support user registration, email verification, login, refresh-
 
 - [Product requirements](docs/product-requirements.md)
 - [User stories](docs/user-stories.md)
+- [System design](docs/system-design.md)
 - [Sprint plan](docs/sprint-plan.md)
 - [Backlog](docs/backlog.md)
 - [Technical decisions](docs/technical-decisions.md)

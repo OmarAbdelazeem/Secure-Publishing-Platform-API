@@ -2,6 +2,17 @@
 
 This repository uses AI assistance as part of the development workflow. The project documents in `docs/` are the source of truth for planning and implementation.
 
+## Before Implementation
+
+Codex should read the relevant GitHub issue and these project documents before implementing code changes:
+
+- `docs/product-requirements.md`
+- `docs/user-stories.md`
+- `docs/system-design.md`
+- `docs/backlog.md`
+- `docs/sprint-plan.md`
+- `docs/technical-decisions.md`
+
 ## Roles
 
 - Codex is the implementer.

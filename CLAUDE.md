@@ -2,6 +2,19 @@
 
 This repository is the **Secure Publishing Platform API**, a production-style backend learning project for secure authentication, authorization, publishing, comments, moderation, testing, API documentation, and deployment readiness.
 
+## Review Source Documents
+
+Claude should check future code reviews against the linked GitHub issue and these project documents:
+
+- `README.md`
+- `AGENTS.md`
+- `docs/product-requirements.md`
+- `docs/user-stories.md`
+- `docs/system-design.md`
+- `docs/backlog.md`
+- `docs/sprint-plan.md`
+- `docs/technical-decisions.md`
+
 ## Project Stack
 
 - Node.js
