@@ -1,0 +1,49 @@
+name: Task
+description: Track technical setup, documentation, refactoring, or maintenance work.
+title: "Task: "
+labels:
+  - task
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Keep tasks small, focused, and tied to the project documents when possible.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What needs to be done?
+    validations:
+      required: true
+  - type: textarea
+    id: checklist
+    attributes:
+      label: Checklist
+      description: Break the task into clear steps.
+      placeholder: |
+        - [ ] Step 1
+        - [ ] Step 2
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Add useful context, constraints, or links.
+    validations:
+      required: false
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Documentation
+        - GitHub / SDLC
+        - Project setup
+        - Testing
+        - Security
+        - Database
+        - API
+        - Other
+    validations:
+      required: true

@@ -1,0 +1,52 @@
+name: Bug
+description: Report incorrect, unsafe, or unexpected behavior.
+title: "Bug: "
+labels:
+  - bug
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What is broken?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: Provide the smallest clear set of steps.
+      placeholder: |
+        1. Send request to ...
+        2. Use payload ...
+        3. See error ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What should have happened?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What happened instead?
+    validations:
+      required: true
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: Who is affected, and how severe is it?
+    validations:
+      required: false
+  - type: textarea
+    id: security
+    attributes:
+      label: Security Notes
+      description: Mention whether secrets, passwords, tokens, permissions, or private data are involved.
+    validations:
+      required: false

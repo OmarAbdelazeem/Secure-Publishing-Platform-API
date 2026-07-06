@@ -1,0 +1,60 @@
+name: User Story
+description: Track a feature from the user or developer perspective.
+title: "US-###: "
+labels:
+  - user-story
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use the docs in `docs/` as the source of truth.
+  - type: input
+    id: story-id
+    attributes:
+      label: Story ID
+      description: "Example: US-001"
+      placeholder: US-001
+    validations:
+      required: true
+  - type: textarea
+    id: user-story
+    attributes:
+      label: User Story
+      description: Write the story in the standard format.
+      placeholder: |
+        As a developer,
+        I want to initialize a clean Express.js application,
+        So that the project has a strong foundation.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: List the conditions that must be true before this story is done.
+      placeholder: |
+        - [ ] Criterion 1
+        - [ ] Criterion 2
+    validations:
+      required: true
+  - type: textarea
+    id: implementation-notes
+    attributes:
+      label: Implementation Notes
+      description: Add architecture, testing, or security notes.
+    validations:
+      required: false
+  - type: dropdown
+    id: sprint
+    attributes:
+      label: Sprint
+      options:
+        - Sprint 0
+        - Sprint 1
+        - Sprint 2
+        - Sprint 3
+        - Sprint 4
+        - Sprint 5
+        - Later
+    validations:
+      required: true
