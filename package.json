@@ -1,0 +1,34 @@
+{
+  "name": "secure-publishing-platform-api",
+  "version": "1.0.0",
+  "description": "Secure Publishing Platform API is a production-style backend learning project for building a secure publishing and content-management API with authentication, authorization, database design, testing, documentation, and deployment practices.",
+  "main": "src/server.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "scripts": {
+    "dev": "node --watch src/server.js",
+    "start": "node src/server.js",
+    "test": "jest --runInBand"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OmarAbdelazeem/Secure-Publishing-Platform-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OmarAbdelazeem/Secure-Publishing-Platform-API/issues"
+  },
+  "homepage": "https://github.com/OmarAbdelazeem/Secure-Publishing-Platform-API#readme",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "jest": "^30.4.2",
+    "supertest": "^7.2.2"
+  }
+}
