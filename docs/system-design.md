@@ -1107,13 +1107,16 @@ Example:
 
 ### 10.2 Error Response
 
-Standard shape:
+Canonical standard shape:
 
 ```
 {
   "success": false,
-  "message": "Invalid credentials",
-  "code": "INVALID_CREDENTIALS"
+  "message": "Invalid credentials.",
+  "error": {
+    "code": "INVALID_CREDENTIALS",
+    "details": []
+  }
 }
 ```
 
@@ -1122,14 +1125,30 @@ Validation error:
 ```
 {
   "success": false,
-  "message": "Validation failed",
-  "code": "VALIDATION_ERROR",
-  "errors": [
-    {
-      "field": "email",
-      "message": "Email must be valid"
-    }
-  ]
+  "message": "Validation failed.",
+  "error": {
+    "code": "VALIDATION_ERROR",
+    "details": [
+      {
+        "field": "email",
+        "message": "Email must be valid."
+      }
+    ]
+  }
+}
+```
+
+Error response with request ID:
+
+```
+{
+  "success": false,
+  "message": "Route not found.",
+  "error": {
+    "code": "NOT_FOUND",
+    "details": []
+  },
+  "requestId": "request_id"
 }
 ```
 

@@ -57,7 +57,7 @@ Claude should check future code reviews against the linked GitHub issue and thes
 
 - All input must be validated.
 - Use Zod for request body, params, and query validation.
-- Errors must use the standard error format.
+- Errors must use the canonical error format from `docs/technical-decisions.md` section 14: `success`, `message`, and `error: { code, details }`, with optional top-level `requestId`.
 - API responses must use the standard success format.
 - Validation errors should include useful field-level details when safe.
 - Production errors must not expose stack traces or internal implementation details.

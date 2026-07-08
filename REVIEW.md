@@ -38,6 +38,7 @@ Important findings should be real issues that can break behavior, leak data, wea
 - Always check that passwords, cookies, raw tokens, refresh tokens, reset tokens, and verification tokens are not logged.
 - Always check that secrets and `.env` files were not committed.
 - Always check that API success responses and error responses follow the documented formats.
+- For API errors, use `docs/technical-decisions.md` section 14 as canonical: `success`, `message`, and `error: { code, details }`, with optional top-level `requestId`.
 
 ## Security Review Checklist
 
@@ -56,7 +57,7 @@ Important findings should be real issues that can break behavior, leak data, wea
 
 For documentation-only PRs:
 
-- Check accuracy against `README.md`, `AGENTS.md`, `docs/product-requirements.md`, `docs/user-stories.md`, `docs/backlog.md`, `docs/sprint-plan.md`, and `docs/technical-decisions.md`.
+- Check accuracy against `README.md`, `AGENTS.md`, `docs/product-requirements.md`, `docs/user-stories.md`, `docs/system-design.md`, `docs/backlog.md`, `docs/sprint-plan.md`, and `docs/technical-decisions.md`.
 - Check consistency with the project stack and Sprint plan.
 - Check that instructions do not conflict with existing security rules.
 - Do not demand tests.
