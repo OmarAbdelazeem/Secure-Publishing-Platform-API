@@ -1,0 +1,64 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum UserStatus {
+  active
+  disabled
+}
+
+model User {
+  id              String     @id @default(uuid())
+  name            String
+  email           String     @unique @db.Citext
+  passwordHash    String     @map("password_hash")
+  emailVerifiedAt DateTime?  @map("email_verified_at")
+  status          UserStatus @default(active)
+  roleId          String     @map("role_id")
+  role            Role       @relation(fields: [roleId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  createdAt       DateTime   @default(now()) @map("created_at")
+  updatedAt       DateTime   @updatedAt @map("updated_at")
+
+  @@index([roleId])
+  @@map("users")
+}
+
+model Role {
+  id              String           @id @default(uuid())
+  name            String           @unique
+  description     String?
+  users           User[]
+  rolePermissions RolePermission[]
+  createdAt       DateTime         @default(now()) @map("created_at")
+  updatedAt       DateTime         @updatedAt @map("updated_at")
+
+  @@map("roles")
+}
+
+model Permission {
+  id              String           @id @default(uuid())
+  name            String           @unique
+  description     String?
+  rolePermissions RolePermission[]
+  createdAt       DateTime         @default(now()) @map("created_at")
+  updatedAt       DateTime         @updatedAt @map("updated_at")
+
+  @@map("permissions")
+}
+
+model RolePermission {
+  id           String     @id @default(uuid())
+  roleId       String     @map("role_id")
+  permissionId String     @map("permission_id")
+  role         Role       @relation(fields: [roleId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  permission   Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  createdAt    DateTime   @default(now()) @map("created_at")
+
+  @@unique([roleId, permissionId])
+  @@index([permissionId])
+  @@map("role_permissions")
+}

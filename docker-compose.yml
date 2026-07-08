@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: secure-publishing-platform-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: secure_publishing_platform_api
+      POSTGRES_USER: secure_publishing_user
+      POSTGRES_PASSWORD: secure_publishing_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "pg_isready -U secure_publishing_user -d secure_publishing_platform_api",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:

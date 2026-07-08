@@ -29,9 +29,9 @@ The platform will support user registration, email verification, login, refresh-
 
 ## Current Status
 
-Current phase: **Sprint 0**
+Current phase: **Sprint 2**
 
-This repository is currently in the planning and SDLC setup stage. Application code has not been initialized yet.
+This repository currently has the Express foundation and local PostgreSQL/Prisma database foundation.
 
 ## Planned SDLC Workflow
 
@@ -54,6 +54,50 @@ This repository is currently in the planning and SDLC setup stage. Application c
 
 ## Getting Started
 
-Coming soon.
+Install dependencies:
 
-The Express application, package setup, database setup, and local development commands will be added during Sprint 1.
+```bash
+npm install
+```
+
+Create a local environment file:
+
+```bash
+cp .env.example .env
+```
+
+Start the local PostgreSQL database:
+
+```bash
+docker compose up -d postgres
+```
+
+Run Prisma migrations and seed data:
+
+```bash
+npm run db:migrate
+npm run db:seed
+```
+
+Start the API:
+
+```bash
+npm run dev
+```
+
+Verify the API:
+
+```bash
+curl http://localhost:3000/health
+curl http://localhost:3000/api/version
+```
+
+Open Prisma Studio if you want to inspect seeded roles and permissions:
+
+```bash
+npm run db:studio
+```
+
+Development super admin seeding is optional. Set `DEV_SUPER_ADMIN_NAME`, `DEV_SUPER_ADMIN_EMAIL`, and `DEV_SUPER_ADMIN_PASSWORD_HASH` in `.env` to enable it.
+
+Sprint 2 seeds the `user` role and creates the `User` to `Role` relationship needed for default role assignment. Actual assignment during registration is deferred to Sprint 4.
