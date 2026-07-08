@@ -125,7 +125,7 @@ For paginated lists, include metadata:
 - **Decision:** Use a consistent JSON error envelope.
 - **Reason:** The PRD and user stories require structured validation, auth, forbidden, not-found, and internal error responses.
 - **Security impact:** Safe error responses prevent leaking stack traces, account existence, token details, database internals, and route internals.
-- **Implementation notes:** Use this base format:
+- **Implementation notes:** This section is the canonical API error response format for implementation and review. Use this base format:
 
 ```json
 {
@@ -139,6 +139,38 @@ For paginated lists, include metadata:
 ```
 
 Validation errors should include field-level details when safe. Unexpected internal errors should be logged and return a safe client message.
+
+Validation errors should use the same envelope and place field-level validation details inside `error.details`:
+
+```json
+{
+  "success": false,
+  "message": "Validation failed.",
+  "error": {
+    "code": "VALIDATION_ERROR",
+    "details": [
+      {
+        "field": "email",
+        "message": "Email must be valid."
+      }
+    ]
+  }
+}
+```
+
+Responses may include a top-level `requestId` when available to help trace logs and support debugging:
+
+```json
+{
+  "success": false,
+  "message": "Route not found.",
+  "error": {
+    "code": "NOT_FOUND",
+    "details": []
+  },
+  "requestId": "request_id"
+}
+```
 
 ## 15. Password Rules
 

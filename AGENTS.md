@@ -55,4 +55,5 @@ Codex should read the relevant GitHub issue and these project documents before i
 - Keep route files focused on routing and middleware composition.
 - Use centralized error handling.
 - Use consistent success and error response formats.
+- Treat `docs/technical-decisions.md` section 14 as the canonical API error response format: `success`, `message`, and `error: { code, details }`, with optional top-level `requestId`.
 - Keep modules organized by feature, such as auth, users, posts, comments, roles, and audit.
